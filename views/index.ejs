@@ -19,7 +19,7 @@
     <div class="message">
       <p>Message: <%= chat.msg %></p>
       <a href="http://localhost:5500/chats/<%= chat._id %>/edit"><button>Edit</button></a>
-      <form action="/chats/<%= chat._id %>?_method=DELETE" method="POST">
+      <form action="/chats/<%= chat._id %>?_method=DELETE" method="POST" class="delete-form">
         <button>Delete</button>
       </form>
     </div>

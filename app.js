@@ -22,6 +22,15 @@ app.use(express.static(path.join(__dirname,"public")));
 app.use(express.urlencoded({extended:true}));
 app.use(methodOverride('_method'));
 
+//DELETE ROUTE
+app.delete('/chats/:id', async (req, res) => {
+  const { id } = req.params;
+  await Chat.findByIdAndDelete(id);
+  res.redirect('/chats');
+});
+
+
+
 //UPDATE CHAT ROUTE
 app.put('/chats/:id',async(req,res)=>{
   let {id}= req.params;

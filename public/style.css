@@ -57,7 +57,7 @@
     animation: slideDown 0.7s ease-out;
   }
 
-  form {
+  .chat-form {
     background: white;
     padding: 30px 40px;
     border-radius: 20px;
