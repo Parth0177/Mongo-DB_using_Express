@@ -20,6 +20,23 @@ app.set('view engine','ejs');
 app.use(express.static(path.join(__dirname,"public")));
 app.use(express.urlencoded({extended:true}));
 
+//CREATE CHAT ROUTE
+app.post('/chats',(req,res)=>{
+  let {from , to, msg}= req.body;
+  let newChat= new Chat({
+  from:from,
+  to:to,
+  msg:msg,
+  created_at: new Date()
+  });
+  newChat.save().then((res)=>{
+    console.log('Chat Created Successfully');
+  }).catch((err)=>{
+    console.log(err);
+  })
+  res.redirect('/chats');
+});
+
 
 //FORM ROUTE
 app.get('/chats/new',(req,res)=>{
