@@ -1,44 +1,11 @@
-
-    h1 {
-      color: #333;
-    }
-    .chat {
-      background-color: white;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      margin-bottom: 20px;
-      width: 80%;
-    }
-    .message {
-      margin-top: 10px;
-      padding: 10px;
-      border-radius: 5px;
-      background-color: #e0e0e0;
-    }
-    p {
-      margin: 5px 0;
-    }
-    .new{
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 100%;
-      cursor: pointer;
-      padding: 10px;
-      background-color: #007bff;
-      color: white;
-      border-radius: 5px;
-      text-align: center;
-      text-decoration: none;
-      transition: background-color 0.3s;
-      margin-bottom: 10px;
-      font-size: 18px;
-    }
-.a{
-    text-decoration: none;;
-}
-  body {
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Add New Chat</title>
+  <style>
+    body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: linear-gradient(to right, #4facfe, #00f2fe);
     color: #333;
@@ -138,3 +105,20 @@
     to { transform: translateY(0); opacity: 1; }
   }
 
+
+  </style>
+</head>
+<body>
+  <h1>Add New Chat</h1>
+  <form action="/add-chat" method="POST">
+    <label for="from">From:</label>
+    <input type="text" id="from" name="from" placeholder="Who are you" required>
+    <label for="to">To:</label>
+    <input type="text" id="to" name="to" required>
+    <label for="msg">Message:</label>
+    <textarea id="msg" name="msg" required placeholder="Write your message here..."></textarea>
+    <button type="submit">Add Chat</button>
+  </form>
+  <p><a href="/">Back to Home</a></p>
+</body>
+</html>

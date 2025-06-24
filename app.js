@@ -21,14 +21,19 @@ app.use(express.static(path.join(__dirname,"public")));
 app.use(express.urlencoded({extended:true}));
 
 
+//FORM ROUTE
+app.get('/chats/new',(req,res)=>{
+  res.render('form.ejs');
+})
 
-//INDEX ROUTE
+
+//ALL CHATS ROUTE
 app.get('/chats',async (req,res)=>{
   let chats= await Chat.find();
   res.render('index.ejs',{chats})
 })
 
-
+//HOME ROUTE
 app.get('/',(req,res)=>{
   res.render('welcome.ejs')
 });
