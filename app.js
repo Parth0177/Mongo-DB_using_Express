@@ -30,8 +30,16 @@ app.set("views", path.join(__dirname,"views"));
 app.set('view engine','ejs');
 
 
+//INDEX ROUTE
+app.get('/chats',async (req,res)=>{
+  let chats= await Chat.find();
+  console.log(chats);
+  res.render('index.ejs',{chats})
+})
+
+
 app.get('/',(req,res)=>{
-  res.send("Wroking Root");
+  res.render('welcome.ejs')
 });
 
 app.listen(PORT, (req,res)=>{
