@@ -19,6 +19,7 @@
     <div class="message">
       <p>Message: <%= chat.msg %></p>
       <a href="http://localhost:5500/chats/<%= chat._id %>/edit"><button>Edit</button></a>
+      <a href="http://localhost:5500/chats/<%= chat._id %>/edit"><button>Delete</button></a>
     </div>
     <p><%= chat.created_at.toString().split(" ")[4] %> </p>
     <p><%= chat.created_at.toString().split(" ").slice(0,4).join("-") %> </p>
