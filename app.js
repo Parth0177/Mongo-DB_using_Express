@@ -4,6 +4,7 @@ const PORT=5500;
 const path = require('path');
 const mongoose = require('mongoose');
 const Chat = require("./models/chat.js");
+const methodOverride = require('method-override');
 
 main().then(()=>{
   console.log('connection Successful');
@@ -19,8 +20,15 @@ app.set("views", path.join(__dirname,"views"));
 app.set('view engine','ejs');
 app.use(express.static(path.join(__dirname,"public")));
 app.use(express.urlencoded({extended:true}));
+app.use(methodOverride('_method'));
 
-
+//UPDATE CHAT ROUTE
+app.put('/chats/:id',async(req,res)=>{
+  let {id}= req.params;
+  let {msg: newMsg}= req.body;
+  let updatedChat= await Chat.findByIdAndUpdate(id, {msg:newMsg}, {runValidators: true, new: true});
+  res.redirect(`/chats`);
+})
 
 
 //EDIT FORM ROUTE

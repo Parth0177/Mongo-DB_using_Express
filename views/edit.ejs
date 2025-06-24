@@ -81,7 +81,7 @@
   <p>Current message: <em><%= chat.msg %></em></p>
   <form action="/chats/<%= chat._id %>?_method=PUT" method="POST">
     <label for="msg">Message:</label>
-    <textarea id="msg" name="msg" required>Type New Message here...</textarea>
+    <textarea id="msg" name="msg" required></textarea>
     <button type="submit">Update Chat</button>
   </form>
 </body>
