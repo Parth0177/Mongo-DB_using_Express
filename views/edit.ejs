@@ -77,16 +77,11 @@
 </head>
 <body>
   <h1>Edit Chat Message</h1>
+  <p>Editing chat from: <strong><%= chat.from %></strong> to <strong><%= chat.to %></strong></p>
+  <p>Current message: <em><%= chat.msg %></em></p>
   <form action="/chats/<%= chat._id %>?_method=PUT" method="POST">
-    <label for="from">From:</label>
-    <input type="text" id="from" name="from" value="<%= chat.from %>" required>
-
-    <label for="to">Received By:</label>
-    <input type="text" id="to" name="to" value="<%= chat.to %>" required>
-
     <label for="msg">Message:</label>
-    <textarea id="msg" name="msg" required><%= chat.msg %></textarea>
-
+    <textarea id="msg" name="msg" required>Type New Message here...</textarea>
     <button type="submit">Update Chat</button>
   </form>
 </body>
