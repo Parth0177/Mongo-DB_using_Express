@@ -20,6 +20,18 @@ app.set('view engine','ejs');
 app.use(express.static(path.join(__dirname,"public")));
 app.use(express.urlencoded({extended:true}));
 
+
+
+//EDIT FORM ROUTE
+app.get('/chats/:id/edit', async (req, res) => {
+  const { id } = req.params;
+  const chat = await Chat.findById(id);
+  res.render('edit.ejs', { chat });
+});
+
+
+
+
 //CREATE CHAT ROUTE
 app.post('/chats',(req,res)=>{
   let {from , to, msg}= req.body;

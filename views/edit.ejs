@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit your Message</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #4facfe, #00f2fe);
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px;
+      min-height: 100vh;
+      margin: 0;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    h1 {
+      color: white;
+      margin-bottom: 20px;
+      animation: slideDown 0.7s ease-out;
+    }
+
+    form {
+      background: white;
+      padding: 30px 40px;
+      border-radius: 20px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+      width: 100%;
+      max-width: 500px;
+      animation: slideUp 0.8s ease-out;
+    }
+
+    label {
+      display: block;
+      margin: 15px 0 5px;
+      font-weight: 600;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px 14px;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      font-size: 16px;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    input:focus, textarea:focus {
+      border-color: #00bcd4;
+      box-shadow: 0 0 8px rgba(0, 188, 212, 0.3);
+      outline: none;
+    }
+
+    textarea {
+      height: 100px;
+      resize: vertical;
+    }
+
+    button {
+      background-color: #00bcd4;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #0097a7;
+    }
+  </style>
+</head>
+<body>
+  <h1>Edit Chat Message</h1>
+  <form action="/chats/<%= chat._id %>?_method=PUT" method="POST">
+    <label for="from">From:</label>
+    <input type="text" id="from" name="from" value="<%= chat.from %>" required>
+
+    <label for="to">Received By:</label>
+    <input type="text" id="to" name="to" value="<%= chat.to %>" required>
+
+    <label for="msg">Message:</label>
+    <textarea id="msg" name="msg" required><%= chat.msg %></textarea>
+
+    <button type="submit">Update Chat</button>
+  </form>
+</body>
+</html>
